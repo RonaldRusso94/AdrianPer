@@ -8,20 +8,44 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- jQuery CDN -->
+    <script
+    src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+
+    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <title>Hello, world!</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet">
 
+    <!-- Stop Youtube Vid when Modal Is Closed -->
+    <script type="text/javascript">
+      $(document).ready(function(){
+          /* Get iframe src attribute value i.e. YouTube video url
+          and store it in a variable */
+          var url = $(".youtubeVideo").attr('src');
+          
+          /* Assign empty url value to the iframe src attribute when
+          modal hide, which stop the video playing */
+          $(".myModal").on('hide.bs.modal', function(){
+              $(".youtubeVideo").attr('src', '');
+          });
+          
+          /* Assign the initially stored url back to the iframe src
+          attribute when modal is displayed again */
+          $(".myModal").on('show.bs.modal', function(){
+              $(".youtubeVideo").attr('src', url);
+          });
+      });
+    </script>
 
-
-
-    <style type="text/css">
-
-    </style>
   </head>
   <body>
     <h1 class="text-center title">Ronald Russo</h1>
@@ -58,19 +82,19 @@
     <!-- =============== CONTENT =============== -->
     <div class="container mb-5">
       <div class="row justify-content-center">
-        <div class="col-5 abc mr-2 mb-2"><a href="" data-toggle="modal" data-target="#demoModal"></a></div>
-        <div class="col-5 abc mb-2"><a href="" data-toggle="modal" data-target="#demoModal"></a></div>
-        <div class="col-5 abc mr-2 mb-2"><a href="" data-toggle="modal" data-target="#demoModal"></a></div>
-        <div class="col-5 abc mb-2"><a href="" data-toggle="modal" data-target="#demoModal"></a></div>
-        <div class="col-5 abc mr-2"><a href="" data-toggle="modal" data-target="#demoModal"></a></div>
-        <div class="col-5 abc"><a href="" data-toggle="modal" data-target="#demoModal"></a></div>
+        <div class="col-5 abc mr-2 mb-2"><a href=".myModal" data-toggle="modal" data-target=".myModal"></a></div>
+        <div class="col-5 abc mb-2"><a href=".myModal" data-toggle="modal" data-target=".myModal"></a></div>
+        <div class="col-5 abc mr-2 mb-2"><a href=".myModal" data-toggle="modal" data-target=".myModal"></a></div>
+        <div class="col-5 abc mb-2"><a href=".myModal" data-toggle="modal" data-target=".myModal"></a></div>
+        <div class="col-5 abc mr-2"><a href=".myModal" data-toggle="modal" data-target=".myModal"></a></div>
+        <div class="col-5 abc"><a href=".myModal" data-toggle="modal" data-target=".myModal"></a></div>
       </div>
     </div>
 
 
     <!-- =============== ALERT & MODAL =============== -->
     <div class="container">
-      <div class="modal fade" id="demoModal">
+      <div class="modal fade myModal" id="">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
@@ -79,8 +103,7 @@
             </div>
             <div class="modal-body">
               <div class="embed-responsive embed-responsive-16by9">
-                <!--   -->
-                <iframe width="961" height="721" src="https://www.youtube.com/embed/TkPqyAmozTg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="961" height="721" class="youtubeVideo" src="https://www.youtube.com/embed/TkPqyAmozTg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
             </div>
             <div class="modal-footer">
@@ -96,6 +119,11 @@
       <i class="fab fa-twitter"><a href="#"></a></i>
       <i class="fab fa-instagram"><a href="#"></a></i>
     </div>
+
+
+
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
