@@ -58,7 +58,7 @@ nav ul li a{
   /*min-height: 80%;*/
 }
 .modal-body {
-  padding: 0 25px 25px 25px;
+  padding: 0;
 }
 /*.modal-header {
   padding: 25px 25px 15px 25px;
@@ -75,4 +75,7 @@ nav ul li a{
   .modal-dialog{
     margin:0 auto;
   }
+}
+.modal-backdrop.show {
+    opacity: 0.95;
 }

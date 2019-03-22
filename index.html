@@ -28,21 +28,27 @@
     <!-- Stop Youtube Vid when Modal Is Closed -->
     <script type="text/javascript">
       $(document).ready(function(){
-          /* Get iframe src attribute value i.e. YouTube video url
-          and store it in a variable */
-          var url = $(".youtubeVideo").attr('src');
-          
-          /* Assign empty url value to the iframe src attribute when
-          modal hide, which stop the video playing */
-          $(".myModal").on('hide.bs.modal', function(){
-              $(".youtubeVideo").attr('src', '');
-          });
-          
-          /* Assign the initially stored url back to the iframe src
-          attribute when modal is displayed again */
-          $(".myModal").on('show.bs.modal', function(){
-              $(".youtubeVideo").attr('src', url);
-          });
+        /* Get iframe src attribute value i.e. YouTube video url
+        and store it in a variable */
+        var url = $(".youtubeVideo").attr('src');
+        
+        /* Assign empty url value to the iframe src attribute when
+        modal hide, which stop the video playing */
+        $(".myModal").on('hide.bs.modal', function(){
+            $(".youtubeVideo").attr('src', '');
+        });
+        
+        /* Assign the initially stored url back to the iframe src
+        attribute when modal is displayed again */
+        $(".myModal").on('show.bs.modal', function(){
+            $(".youtubeVideo").attr('src', url);
+        });
+
+        $('.myModal').on('hidden.bs.modal', function(e) {
+          var iframeElement = $(this).find('iframe')[0];
+          var action = { event: 'command', func: 'stopVideo', args: '' };
+          iframeElement.contentWindow.postMessage(JSON.stringify(action), '*');
+        });
       });
     </script>
 
@@ -82,12 +88,24 @@
     <!-- =============== CONTENT =============== -->
     <div class="container mb-5">
       <div class="row justify-content-center">
-        <div class="col-5 content mr-2 mb-2"><a href=".myModal" data-toggle="modal" data-target=".myModal"></a></div>
-        <div class="col-5 content mb-2"><a href=".myModal" data-toggle="modal" data-target=".myModal"></a></div>
-        <div class="col-5 content mr-2 mb-2"><a href=".myModal" data-toggle="modal" data-target=".myModal"></a></div>
-        <div class="col-5 content mb-2"><a href=".myModal" data-toggle="modal" data-target=".myModal"></a></div>
-        <div class="col-5 content mr-2"><a href=".myModal" data-toggle="modal" data-target=".myModal"></a></div>
-        <div class="col-5 content"><a href=".myModal" data-toggle="modal" data-target=".myModal"></a></div>
+        <div class="col-5 content mr-2 mb-2">
+          <a href=".myModal" data-toggle="modal" data-target=".myModal"></a>
+        </div>
+        <div class="col-5 content mb-2">
+          <a href=".myModal" data-toggle="modal" data-target=".myModal"></a>
+        </div>
+        <div class="col-5 content mr-2 mb-2">
+          <a href=".myModal" data-toggle="modal" data-target=".myModal"></a>
+        </div>
+        <div class="col-5 content mb-2">
+          <a href=".myModal" data-toggle="modal" data-target=".myModal"></a>
+        </div>
+        <div class="col-5 content mr-2">
+          <a href=".myModal" data-toggle="modal" data-target=".myModal"></a>
+        </div>
+        <div class="col-5 content">
+          <a href=".myModal" data-toggle="modal" data-target=".myModal"></a>
+        </div>
       </div>
     </div>
 
@@ -102,7 +120,7 @@
             </div>
             <div class="modal-body">
               <div class="embed-responsive embed-responsive-16by9">
-                <iframe width="856" height="481" src="https://www.youtube.com/embed/YQbQGnk9aEc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="856" height="481" src="https://www.youtube.com/embed/YQbQGnk9aEc?enablejsapi=1&version=3&playerapiid=ytplayer" allowscriptaccess="alway" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
             </div>
             </div>
