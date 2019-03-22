@@ -57,9 +57,7 @@ nav ul li a{
   min-width: 85%;
   /*min-height: 80%;*/
 }
-.modal-body {
-  padding: 0;
-}
+
 /*.modal-header {
   padding: 25px 25px 15px 25px;
   text-align: right;
@@ -71,11 +69,36 @@ nav ul li a{
 .close{
   color: white;
 }
-@media (min-width: 576px){
-  .modal-dialog{
-    margin:0 auto;
-  }
-}
 .modal-backdrop.show {
     opacity: 0.95;
+}
+.close{
+    display: none;
+
+  }
+
+/*// Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .close{
+    display: block;
+    position: absolute;
+    text-align: right;
+    top: 2%;
+    right: 2%;
+  }
+}
+
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+
+}
+
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+
+}
+
+/*// Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  
 }
